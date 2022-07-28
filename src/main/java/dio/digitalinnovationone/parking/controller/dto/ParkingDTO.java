@@ -1,8 +1,9 @@
-package dio.digitalinnovationone.parking.model;
+package dio.digitalinnovationone.parking.controller.dto;
 
 import java.time.LocalDateTime;
 
-public class Parking {
+public class ParkingDTO {
+
     private String id;
     private String license;
     private String stage;
@@ -11,18 +12,6 @@ public class Parking {
     private LocalDateTime entryDate;
     private LocalDateTime exitDate;
     private Double bill;
-
-    public Parking(String id, String license, String stage, String model, String color) {
-        this.id = id;
-        this.license = license;
-        this.stage = stage;
-        this.model = model;
-        this.color = color;
-    }
-
-    public Parking() {
-
-    }
 
     public String getId() {
         return id;
