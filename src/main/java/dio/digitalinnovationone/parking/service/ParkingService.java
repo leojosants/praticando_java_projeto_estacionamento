@@ -1,8 +1,12 @@
 package dio.digitalinnovationone.parking.service;
 
+import dio.digitalinnovationone.parking.controller.dto.ParkingDTO;
 import dio.digitalinnovationone.parking.exception.ParkingNotFoundException;
 import dio.digitalinnovationone.parking.model.Parking;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -57,8 +61,13 @@ public class ParkingService {
     public Parking update(String id, Parking parkingCreate) {
         Parking parking = findById(id);
         parking.setColor(parkingCreate.getColor());
-        parkingMap.replace(id,parking);
+        parkingMap.replace(id, parking);
         return parking;
     }
 
+//    @PostMapping("/{id}")
+//    public ResponseEntity<ParkingDTO> exit(@PathVariable String id) {
+//        Parking parking = ParkingService.exit(id);
+//        return ResponseEntity.ok(parkingMap.toParkingDTO(parking));
+//    }
 }
