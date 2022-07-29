@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 @Service
 public class ParkingService {
 
-    private static Map<String, Parking> parkingMap = new HashMap<>();
+    private static final Map<String, Parking> parkingMap = new HashMap<>();
 
     static {
         var id = getUUID();
@@ -24,7 +24,7 @@ public class ParkingService {
     }
 
     public List<Parking> findAll() {
-        return parkingMap.values().stream().collect(Collectors.toList());
+        return new ArrayList<>(parkingMap.values());
     }
 
     private static String getUUID() {

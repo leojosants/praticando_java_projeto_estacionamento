@@ -18,14 +18,14 @@ public class SwaggerConfig {
     public Docket getDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("one.digitalinnovation.parking"))
+                .apis(RequestHandlerSelectors.basePackage("dio.digitalinnovationone.parking"))
                 .build()
                 .apiInfo(metaData());
     }
 
     private ApiInfo metaData() {
         return new ApiInfoBuilder()
-                .title("parking REST API")
+                .title("Parking REST API")
                 .description("Spring Boot REST API for Parking")
                 .version("1.0.0")
                 .license("Apache License Version 2.0")
