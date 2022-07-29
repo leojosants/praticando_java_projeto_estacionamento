@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class ParkingService {
@@ -44,13 +43,22 @@ public class ParkingService {
 
     public Parking create(Parking parkingCreate) {
         String uuid = getUUID();
-
         parkingCreate.setId(uuid);
         parkingCreate.setEntryDate(LocalDateTime.now());
-
         parkingMap.put(uuid, parkingCreate);
-
         return parkingCreate;
-
     }
+
+    public void delete(String id) {
+        findById(id);
+        parkingMap.remove(id);
+    }
+
+    public Parking update(String id, Parking parkingCreate) {
+        Parking parking = findById(id);
+        parking.setColor(parkingCreate.getColor());
+        parkingMap.replace(id,parking);
+        return parking;
+    }
+
 }
