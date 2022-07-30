@@ -65,6 +65,10 @@ public class ParkingService {
         return parking;
     }
 
+    public Parking exit(String id) {
+        return null;
+    }
+
 //    @PostMapping("/{id}")
 //    public ResponseEntity<ParkingDTO> exit(@PathVariable String id) {
 //        Parking parking = ParkingService.exit(id);
